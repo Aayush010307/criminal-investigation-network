@@ -1,0 +1,872 @@
+{
+ "Q1": {
+  "columns": [
+   "id",
+   "name",
+   "alias",
+   "risk",
+   "crimes",
+   "associates",
+   "evidence"
+  ],
+  "rows": [
+   [
+    "S001",
+    "Rahul Menon",
+    "Ghost",
+    "High",
+    [
+     "CR002 Narcotics (Principal)",
+     "CR009 Narcotics (Principal)",
+     "CR011 Assault (Accessory)",
+     "CR008 Narcotics (Accessory)",
+     "CR007 Assault (Accomplice)"
+    ],
+    [
+     "S004",
+     "S002",
+     "S003",
+     "S005",
+     "S006",
+     "S007",
+     "S008",
+     "S009"
+    ],
+    [
+     "E002",
+     "E004",
+     "E005",
+     "E022",
+     "E029",
+     "E030",
+     "E031",
+     "E034"
+    ]
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "Q2": {
+  "columns": [
+   "chain",
+   "hops"
+  ],
+  "rows": [
+   [
+    [
+     "S002 Falcon",
+     "S001 Ghost",
+     "S009 Tiger",
+     "S027 Hawk",
+     "S020 Raja",
+     "S026 Munna"
+    ],
+    5
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "Q3": {
+  "columns": [
+   "degree",
+   "suspects",
+   "ids"
+  ],
+  "rows": [
+   [
+    1,
+    8,
+    [
+     "S002",
+     "S003",
+     "S004",
+     "S005",
+     "S006",
+     "S007",
+     "S008",
+     "S009"
+    ]
+   ],
+   [
+    2,
+    3,
+    [
+     "S010",
+     "S015",
+     "S027"
+    ]
+   ],
+   [
+    3,
+    4,
+    [
+     "S011",
+     "S019",
+     "S020",
+     "S023"
+    ]
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "Q4": {
+  "columns": [
+   "id",
+   "alias",
+   "risk",
+   "crimes",
+   "crime_ids"
+  ],
+  "rows": [
+   [
+    "S001",
+    "Ghost",
+    "High",
+    5,
+    [
+     "CR002",
+     "CR009",
+     "CR011",
+     "CR008",
+     "CR007"
+    ]
+   ],
+   [
+    "S007",
+    "Duke",
+    "Medium",
+    4,
+    [
+     "CR005",
+     "CR008",
+     "CR011",
+     "CR007"
+    ]
+   ],
+   [
+    "S011",
+    "Jackal",
+    "High",
+    4,
+    [
+     "CR003",
+     "CR014",
+     "CR015",
+     "CR013"
+    ]
+   ],
+   [
+    "S020",
+    "Raja",
+    "High",
+    3,
+    [
+     "CR001",
+     "CR018",
+     "CR021"
+    ]
+   ],
+   [
+    "S025",
+    "Fox",
+    "Medium",
+    3,
+    [
+     "CR018",
+     "CR023",
+     "CR020"
+    ]
+   ],
+   [
+    "S004",
+    "Kaka",
+    "High",
+    2,
+    [
+     "CR002",
+     "CR006"
+    ]
+   ],
+   [
+    "S014",
+    "Lucky",
+    "Low",
+    2,
+    [
+     "CR017",
+     "CR014"
+    ]
+   ],
+   [
+    "S024",
+    "Lion",
+    "High",
+    2,
+    [
+     "CR019",
+     "CR020"
+    ]
+   ],
+   [
+    "S028",
+    "Smoke",
+    "Low",
+    2,
+    [
+     "CR020",
+     "CR001"
+    ]
+   ],
+   [
+    "S032",
+    "Chhota",
+    "Low",
+    2,
+    [
+     "CR025",
+     "CR027"
+    ]
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "Q5": {
+  "columns": [
+   "id",
+   "type",
+   "description",
+   "crimes"
+  ],
+  "rows": [
+   [
+    "E002",
+    "Digital",
+    "Mobile handset with call log",
+    [
+     "CR002",
+     "CR008"
+    ]
+   ],
+   [
+    "E003",
+    "Document",
+    "Medico-legal certificate of the victim",
+    [
+     "CR021",
+     "CR004"
+    ]
+   ],
+   [
+    "E004",
+    "Weapon",
+    "Unlicensed pistol found with the consignment",
+    [
+     "CR010",
+     "CR009"
+    ]
+   ],
+   [
+    "E005",
+    "Digital",
+    "Burner phone with dealer contacts",
+    [
+     "CR009",
+     "CR002"
+    ]
+   ],
+   [
+    "E006",
+    "Weapon",
+    "Crowbar used for forced entry",
+    [
+     "CR022",
+     "CR023"
+    ]
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "Q6": {
+  "columns": [
+   "id",
+   "address",
+   "city",
+   "incidents",
+   "avg_severity"
+  ],
+  "rows": [
+   [
+    "L001",
+    "12 MG Road",
+    "Bengaluru",
+    4,
+    3.75
+   ],
+   [
+    "L014",
+    "8 HITEC City Phase 2",
+    "Hyderabad",
+    3,
+    3.33
+   ],
+   [
+    "L003",
+    "7 Brigade Road",
+    "Bengaluru",
+    3,
+    3.0
+   ],
+   [
+    "L005",
+    "Majestic Bus Terminal",
+    "Bengaluru",
+    2,
+    4.0
+   ],
+   [
+    "L009",
+    "Dadar Railway Station",
+    "Mumbai",
+    2,
+    3.0
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "Q7": {
+  "columns": [
+   "id",
+   "item",
+   "found_at",
+   "found_on",
+   "recovered_by",
+   "crime",
+   "crime_type",
+   "relevance",
+   "processing"
+  ],
+  "rows": [
+   [
+    "E002",
+    "Mobile handset with call log",
+    "12 MG Road, Bengaluru",
+    "2025-04-28",
+    "Insp. A. Nair",
+    "CR002",
+    "Narcotics",
+    0.91,
+    "Analysed"
+   ],
+   [
+    "E002",
+    "Mobile handset with call log",
+    "12 MG Road, Bengaluru",
+    "2025-04-28",
+    "Insp. A. Nair",
+    "CR008",
+    "Narcotics",
+    0.49,
+    "Pending"
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "Q8": {
+  "columns": [
+   "department",
+   "officers",
+   "assignments",
+   "cases_led",
+   "closed",
+   "closure_rate_pct"
+  ],
+  "rows": [
+   [
+    "Anti-Theft Squad",
+    3,
+    10,
+    10,
+    5,
+    50.0
+   ],
+   [
+    "Cyber Cell",
+    2,
+    9,
+    7,
+    1,
+    14.3
+   ],
+   [
+    "Crime Branch",
+    4,
+    9,
+    6,
+    0,
+    0.0
+   ],
+   [
+    "Narcotics Bureau",
+    3,
+    5,
+    5,
+    1,
+    20.0
+   ],
+   [
+    "Homicide Division",
+    2,
+    2,
+    2,
+    0,
+    0.0
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "Q9": {
+  "columns": [
+   "year",
+   "quarter",
+   "total",
+   "breakdown"
+  ],
+  "rows": [
+   [
+    2025,
+    "Q1",
+    2,
+    [
+     "Fraud: 1",
+     "Theft: 1"
+    ]
+   ],
+   [
+    2025,
+    "Q2",
+    8,
+    [
+     "Assault: 1",
+     "Fraud: 3",
+     "Narcotics: 1",
+     "Theft: 3"
+    ]
+   ],
+   [
+    2025,
+    "Q3",
+    3,
+    [
+     "Assault: 1",
+     "Narcotics: 1",
+     "Theft: 1"
+    ]
+   ],
+   [
+    2025,
+    "Q4",
+    3,
+    [
+     "Assault: 1",
+     "Narcotics: 1",
+     "Theft: 1"
+    ]
+   ],
+   [
+    2026,
+    "Q1",
+    6,
+    [
+     "Fraud: 3",
+     "Narcotics: 2",
+     "Theft: 1"
+    ]
+   ],
+   [
+    2026,
+    "Q2",
+    4,
+    [
+     "Assault: 2",
+     "Narcotics: 1",
+     "Theft: 1"
+    ]
+   ],
+   [
+    2026,
+    "Q3",
+    4,
+    [
+     "Homicide: 2",
+     "Theft: 2"
+    ]
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "Q10": {
+  "columns": [
+   "id",
+   "alias",
+   "risk",
+   "linked_through",
+   "strongest_tie"
+  ],
+  "rows": [
+   [
+    "S002",
+    "Falcon",
+    "Medium",
+    [
+     "S001"
+    ],
+    0.87
+   ],
+   [
+    "S007",
+    "Duke",
+    "Medium",
+    [
+     "S001",
+     "S004"
+    ],
+    0.84
+   ],
+   [
+    "S003",
+    "Chotu",
+    "Low",
+    [
+     "S001"
+    ],
+    0.79
+   ],
+   [
+    "S008",
+    "Bullet",
+    "Low",
+    [
+     "S001"
+    ],
+    0.78
+   ],
+   [
+    "S006",
+    "Cobra",
+    "High",
+    [
+     "S001"
+    ],
+    0.77
+   ],
+   [
+    "S009",
+    "Tiger",
+    "Medium",
+    [
+     "S001",
+     "S004"
+    ],
+    0.74
+   ],
+   [
+    "S005",
+    "Seth",
+    "Low",
+    [
+     "S001"
+    ],
+    0.7
+   ],
+   [
+    "S010",
+    "Nawab",
+    "Medium",
+    [
+     "S004"
+    ],
+    0.48
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "A1": {
+  "columns": [
+   "id",
+   "alias",
+   "associates",
+   "crimes"
+  ],
+  "rows": [
+   [
+    "S001",
+    "Ghost",
+    8,
+    5
+   ],
+   [
+    "S020",
+    "Raja",
+    8,
+    3
+   ],
+   [
+    "S011",
+    "Jackal",
+    7,
+    4
+   ],
+   [
+    "S024",
+    "Lion",
+    5,
+    2
+   ],
+   [
+    "S010",
+    "Nawab",
+    5,
+    1
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "A2": {
+  "columns": [
+   "suspect_a",
+   "suspect_b",
+   "shared_crimes",
+   "shared",
+   "known_associates"
+  ],
+  "rows": [
+   [
+    "S001",
+    "S007",
+    3,
+    [
+     "CR007",
+     "CR008",
+     "CR011"
+    ],
+    true
+   ],
+   [
+    "S001",
+    "S004",
+    1,
+    [
+     "CR002"
+    ],
+    true
+   ],
+   [
+    "S001",
+    "S006",
+    1,
+    [
+     "CR007"
+    ],
+    true
+   ],
+   [
+    "S001",
+    "S009",
+    1,
+    [
+     "CR007"
+    ],
+    true
+   ],
+   [
+    "S006",
+    "S007",
+    1,
+    [
+     "CR007"
+    ],
+    false
+   ],
+   [
+    "S006",
+    "S009",
+    1,
+    [
+     "CR007"
+    ],
+    false
+   ],
+   [
+    "S007",
+    "S009",
+    1,
+    [
+     "CR007"
+    ],
+    false
+   ],
+   [
+    "S007",
+    "S010",
+    1,
+    [
+     "CR005"
+    ],
+    true
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "A3": {
+  "columns": [
+   "id",
+   "alias",
+   "hops"
+  ],
+  "rows": [
+   [
+    "S002",
+    "Falcon",
+    1
+   ],
+   [
+    "S003",
+    "Chotu",
+    1
+   ],
+   [
+    "S004",
+    "Kaka",
+    1
+   ],
+   [
+    "S005",
+    "Seth",
+    1
+   ],
+   [
+    "S006",
+    "Cobra",
+    1
+   ],
+   [
+    "S007",
+    "Duke",
+    1
+   ],
+   [
+    "S008",
+    "Bullet",
+    1
+   ],
+   [
+    "S009",
+    "Tiger",
+    1
+   ],
+   [
+    "S010",
+    "Nawab",
+    2
+   ],
+   [
+    "S027",
+    "Hawk",
+    2
+   ],
+   [
+    "S020",
+    "Raja",
+    3
+   ]
+  ],
+  "compare": "ordered"
+ },
+ "A4": {
+  "columns": [
+   "route",
+   "hops"
+  ],
+  "rows": [
+   [
+    [
+     "S003",
+     "S001",
+     "S007",
+     "S015",
+     "S019"
+    ],
+    4
+   ],
+   [
+    [
+     "S003",
+     "S010",
+     "S007",
+     "S015",
+     "S019"
+    ],
+    4
+   ]
+  ],
+  "compare": "set"
+ },
+ "A5": {
+  "columns": [
+   "label",
+   "id",
+   "description"
+  ],
+  "rows": [
+   [
+    "Crime",
+    "CR003",
+    "Fraudulent bank transfers"
+   ],
+   [
+    "Evidence",
+    "E017",
+    "Bank statements obtained under warrant"
+   ],
+   [
+    "Evidence",
+    "E026",
+    "Bank statements obtained under warrant"
+   ]
+  ],
+  "compare": "set"
+ },
+ "A6": {
+  "columns": [
+   "id",
+   "type",
+   "date",
+   "status",
+   "lead_officer"
+  ],
+  "rows": [
+   [
+    "CR028",
+    "Homicide",
+    "2026-08-17",
+    "Under Investigation",
+    "ACP. M. Reddy"
+   ],
+   [
+    "CR029",
+    "Homicide",
+    "2026-08-15",
+    "Under Investigation",
+    "Insp. S. Banerjee"
+   ],
+   [
+    "CR030",
+    "Theft",
+    "2026-07-21",
+    "Under Investigation",
+    "ASI. D. Joshi"
+   ]
+  ],
+  "compare": "ordered"
+ }
+}

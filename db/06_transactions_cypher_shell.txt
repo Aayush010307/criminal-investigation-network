@@ -1,0 +1,31 @@
+// =====================================================================
+// 06_transactions_cypher_shell.txt  -  Explicit transactions in cypher-shell
+// Neo4j Desktop: DBMS  ...  > Terminal, then:  bin/cypher-shell -u neo4j -p <password>
+// Lines starting with ':' are cypher-shell commands, not Cypher.
+// =====================================================================
+
+// ---- Demo 1: ROLLBACK discards every change made inside the transaction
+:begin
+CREATE (:Crime {crime_id: 'CR099', type: 'Theft', date: date('2026-09-20'), status: 'Open', severity: 2, description: 'Rollback demo'});
+MATCH (c:Crime) RETURN count(c) AS crimes_inside_tx;      // 31 - visible inside the transaction
+:rollback
+MATCH (c:Crime) RETURN count(c) AS crimes_after_rollback; // 30 - nothing was persisted
+
+// ---- Demo 2: COMMIT makes a multi-statement change durable atomically
+:begin
+MATCH (:Officer)-[old:INVESTIGATING {lead_investigator: true}]->(c:Crime {crime_id: 'CR003'})
+SET old.lead_investigator = false;
+MATCH (o:Officer {badge_number: 'B1210'})
+MATCH (c:Crime {crime_id: 'CR003'})
+MERGE (o)-[r:INVESTIGATING]->(c)
+SET r.lead_investigator = true, r.assigned_date = date();
+:commit
+// NOTE: Demo 2 changes the data. Run  python scripts/setup_db.py --reset  before scripts/verify.py.
+
+// ---- Demo 3: a failing statement aborts the whole transaction
+:begin
+CREATE (:Crime {crime_id: 'CR098', type: 'Fraud', date: date(), status: 'Open', severity: 3, description: 'Atomicity demo'});
+CREATE (:Suspect {suspect_id: 'S001', first_name: 'Dup', last_name: 'Key'});   // violates suspect_id_unique
+// -> ConstraintValidationFailed; the transaction is now terminated
+:rollback
+MATCH (c:Crime {crime_id: 'CR098'}) RETURN count(c) AS cr098;   // 0 - the first CREATE was undone as well

@@ -1,0 +1,36 @@
+evidence_id,type,description,collection_date,custody_status
+E001,Weapon,Recovered kitchen knife,2025-08-20,In Lab
+E002,Digital,Mobile handset with call log,2025-04-28,Archived
+E003,Document,Medico-legal certificate of the victim,2026-04-27,In Lab
+E004,Weapon,Unlicensed pistol found with the consignment,2026-06-18,In Lab
+E005,Digital,Burner phone with dealer contacts,2026-03-13,Archived
+E006,Weapon,Crowbar used for forced entry,2025-12-26,In Lab
+E007,Document,Handwritten list of target houses,2025-05-20,In Lab
+E008,Digital,GPS tracker log of the stolen vehicle,2025-04-23,Archived
+E009,Document,Pawn-shop receipt for stolen jewellery,2025-02-15,Archived
+E010,Digital,Call-detail records obtained under subpoena,2025-11-08,In Lab
+E011,Biological,Seized substance sample,2025-08-06,In Lab
+E012,Document,Forged identity documents,2025-04-14,Released
+E013,Document,Cheque book with forged signatures,2026-02-06,In Lab
+E014,Biological,Fingerprints lifted from the entry point,2026-07-04,In Lab
+E015,Weapon,Knife with partial prints,2026-08-19,In Lab
+E016,Digital,Laptop with phishing kit,2025-05-29,In Lab
+E017,Document,Bank statements obtained under warrant,2025-06-05,In Lab
+E018,Digital,GPS tracker log of the stolen vehicle,2025-07-19,Archived
+E019,Document,Forged identity documents,2026-02-25,Archived
+E020,Document,Pawn-shop receipt for stolen jewellery,2026-07-03,Archived
+E021,Digital,Call-detail records obtained under subpoena,2026-08-16,In Lab
+E022,Weapon,Iron rod recovered from the scene,2025-04-29,Archived
+E023,Biological,Shoe-print cast from the window ledge,2026-07-23,Archived
+E024,Document,Cheque book with forged signatures,2025-01-09,Archived
+E025,Weapon,Broken glass bottle,2026-04-15,Archived
+E026,Document,Bank statements obtained under warrant,2026-01-21,In Lab
+E027,Document,Pawn-shop receipt for stolen jewellery,2026-03-31,In Lab
+E028,Biological,Shoe-print cast from the window ledge,2025-05-22,Archived
+E029,Digital,Encrypted messaging backup,2026-03-11,In Lab
+E030,Digital,Mobile video recorded by a bystander,2025-12-30,In Lab
+E031,Document,Handwritten supply ledger,2025-04-27,Archived
+E032,Document,Forged identity documents,2025-06-09,Archived
+E033,Digital,Call-detail records obtained under subpoena,2025-08-09,Released
+E034,Document,Handwritten supply ledger,2026-03-15,In Lab
+E035,Digital,Laptop with phishing kit,2025-04-13,Archived

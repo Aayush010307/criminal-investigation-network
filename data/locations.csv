@@ -1,0 +1,21 @@
+location_id,address,city,zipcode,latitude,longitude,area_type
+L001,12 MG Road,Bengaluru,560001,12.9758,77.6045,Commercial
+L002,48 Anna Salai,Chennai,600002,13.0604,80.2496,Public
+L003,7 Brigade Road,Bengaluru,560025,12.9716,77.607,Commercial
+L004,22 Koramangala 5th Block,Bengaluru,560095,12.9352,77.6245,Residential
+L005,Majestic Bus Terminal,Bengaluru,560009,12.9767,77.5713,Public
+L006,15 T. Nagar Main Road,Chennai,600017,13.0418,80.2341,Commercial
+L007,3 Besant Nagar Beach Rd,Chennai,600090,13.0002,80.2668,Public
+L008,91 Adyar Gandhi Nagar,Chennai,600020,13.0067,80.2573,Residential
+L009,Dadar Railway Station,Mumbai,400014,19.0178,72.8478,Public
+L010,"210 Linking Road, Bandra",Mumbai,400050,19.0596,72.8295,Commercial
+L011,"5 Andheri East, MIDC",Mumbai,400093,19.1136,72.8697,Commercial
+L012,44 Banjara Hills Rd 12,Hyderabad,500034,17.4126,78.4482,Residential
+L013,Charminar Market,Hyderabad,500002,17.3616,78.4747,Public
+L014,8 HITEC City Phase 2,Hyderabad,500081,17.4435,78.3772,Commercial
+L015,"31 FC Road, Shivajinagar",Pune,411004,18.5236,73.8413,Commercial
+L016,17 Koregaon Park Lane 6,Pune,411001,18.5362,73.894,Residential
+L017,Connaught Place Block C,New Delhi,110001,28.6315,77.2167,Commercial
+L018,66 Lajpat Nagar II,New Delhi,110024,28.5677,77.2433,Residential
+L019,Chandni Chowk Market,New Delhi,110006,28.6506,77.2303,Public
+L020,9 Whitefield Main Road,Bengaluru,560066,12.9698,77.75,Residential

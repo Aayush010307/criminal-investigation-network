@@ -1,0 +1,31 @@
+crime_id,type,date,status,severity,description
+CR001,Theft,2025-02-11,Closed,2,Burglary at a retail outlet
+CR002,Narcotics,2025-04-27,Under Investigation,4,Seizure during a routine patrol
+CR003,Fraud,2025-06-05,Open,3,Fraudulent bank transfers
+CR004,Assault,2025-08-19,Under Investigation,4,Assault outside a nightclub
+CR005,Narcotics,2025-08-05,Closed,4,Narcotics sale near a college
+CR006,Narcotics,2025-11-06,Under Investigation,4,Drug consignment intercepted at a terminal
+CR007,Assault,2025-12-29,Under Investigation,3,Group attack outside a bar
+CR008,Narcotics,2026-03-11,Open,3,Warehouse storing contraband
+CR009,Narcotics,2026-03-12,Under Investigation,4,Drug peddling at a nightlife venue
+CR010,Narcotics,2026-06-16,Under Investigation,5,Synthetic drug lab raided
+CR011,Assault,2025-04-27,Under Investigation,4,Road-rage assault on a cab driver
+CR012,Fraud,2026-02-25,Under Investigation,4,Credit-card skimming at an ATM
+CR013,Fraud,2025-01-09,Under Investigation,3,Forged property documents
+CR014,Fraud,2025-04-10,Closed,4,Insurance claim fraud
+CR015,Fraud,2025-05-28,Under Investigation,2,Fake investment scheme
+CR016,Fraud,2026-02-06,Under Investigation,3,Online lottery scam
+CR017,Fraud,2026-01-21,Under Investigation,3,Loan-app extortion racket
+CR018,Theft,2026-03-27,Under Investigation,3,Pickpocketing ring at a market
+CR019,Theft,2025-04-23,Closed,1,Chain snatching near a bus stop
+CR020,Theft,2026-07-03,Under Investigation,2,Copper cable theft from a construction site
+CR021,Assault,2026-04-26,Under Investigation,3,Attack on a shopkeeper
+CR022,Theft,2025-12-26,Under Investigation,3,Theft of laptops from an office
+CR023,Theft,2025-05-19,Closed,1,ATM cash-box tampering
+CR024,Theft,2025-05-17,Closed,2,Bag lifting on a crowded train
+CR025,Theft,2025-07-16,Closed,3,Cash stolen from a petrol pump counter
+CR026,Assault,2026-04-11,Open,4,Assault on a security guard
+CR027,Theft,2026-06-30,Open,2,Mobile phones stolen from a showroom
+CR028,Homicide,2026-08-17,Under Investigation,5,Fatal stabbing in a residential lane
+CR029,Homicide,2026-08-15,Under Investigation,5,Body recovered near a lake
+CR030,Theft,2026-07-21,Under Investigation,1,Jewellery stolen from a locked house

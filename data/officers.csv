@@ -1,0 +1,16 @@
+badge_number,name,rank,department,contact_info,years_of_service
+B1201,Insp. A. Nair,Inspector,Crime Branch,a.nair@police.example,14
+B1202,SI. K. Fernandes,Sub-Inspector,Cyber Cell,k.fernandes@police.example,6
+B1203,Insp. R. Iyer,Inspector,Narcotics Bureau,r.iyer@police.example,11
+B1204,SI. P. Kulkarni,Sub-Inspector,Narcotics Bureau,p.kulkarni@police.example,5
+B1205,ACP. M. Reddy,Assistant Commissioner,Homicide Division,m.reddy@police.example,19
+B1206,Insp. S. Banerjee,Inspector,Homicide Division,s.banerjee@police.example,12
+B1207,SI. N. Gupta,Sub-Inspector,Anti-Theft Squad,n.gupta@police.example,4
+B1208,Insp. V. Pillai,Inspector,Anti-Theft Squad,v.pillai@police.example,9
+B1209,ASI. D. Joshi,Assistant Sub-Inspector,Anti-Theft Squad,d.joshi@police.example,3
+B1210,Insp. H. Khan,Inspector,Cyber Cell,h.khan@police.example,10
+B1211,SI. L. D'Souza,Sub-Inspector,Cyber Cell,l.dsouza@police.example,7
+B1212,Insp. T. Rao,Inspector,Crime Branch,t.rao@police.example,13
+B1213,SI. G. Mehta,Sub-Inspector,Crime Branch,g.mehta@police.example,5
+B1214,SI. J. Thomas,Sub-Inspector,Narcotics Bureau,j.thomas@police.example,8
+B1215,ASI. Y. Verma,Assistant Sub-Inspector,Crime Branch,y.verma@police.example,2
