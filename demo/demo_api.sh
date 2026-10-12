@@ -1,14 +1,25 @@
 #!/usr/bin/env bash
 # =====================================================================
-# demo_api.sh - live walkthrough of the REST API for the Review 2 demonstration.
+# demo_api.sh - live walkthrough of the REST API.
 # Prerequisites: Neo4j running, data loaded (scripts/setup_db.py), API started (cd api && npm start).
+# Signs in as ADMIN_USERNAME / ADMIN_PASSWORD from .env (the password is never printed).
 # Usage:  bash demo/demo_api.sh            (press Enter between steps)
 #         AUTO=1 bash demo/demo_api.sh     (no pauses)
 # The script cleans up after itself, so the dataset is unchanged at the end.
 # =====================================================================
 API=${API:-http://localhost:3000/api}
-KEY_HEADER=()
-[ -n "$API_KEY" ] && KEY_HEADER=(-H "x-api-key: $API_KEY")
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+envval() { grep -E "^$1=" "$ROOT/.env" 2>/dev/null | tail -1 | cut -d= -f2-; }
+ADMIN_USERNAME=${ADMIN_USERNAME:-$(envval ADMIN_USERNAME)}
+ADMIN_PASSWORD=${ADMIN_PASSWORD:-$(envval ADMIN_PASSWORD)}
+login() { # user password -> prints token
+  curl -s -X POST -H 'Content-Type: application/json' "$API/auth/login" \
+    -d "$(python3 -c 'import json,sys; print(json.dumps({"username": sys.argv[1], "password": sys.argv[2]}))' "$1" "$2")" |
+    python3 -c 'import json,sys; print(json.load(sys.stdin).get("token", ""))'
+}
+TOKEN=$(login "$ADMIN_USERNAME" "$ADMIN_PASSWORD")
+[ -z "$TOKEN" ] && { echo "Sign-in as '$ADMIN_USERNAME' failed - check ADMIN_USERNAME / ADMIN_PASSWORD in .env and that the API is running."; exit 1; }
+KEY_HEADER=(-H "Authorization: Bearer $TOKEN")
 
 step() { echo; echo "================================================================"; echo "  $1"; echo "================================================================"; [ -z "$AUTO" ] && read -r -p "  (Enter) " _; }
 call() { # method path [json]
@@ -17,7 +28,9 @@ call() { # method path [json]
   else curl -s -X "$1" "${KEY_HEADER[@]}" -w '\n  HTTP %{http_code}\n' "$API$2"; fi | sed 's/^/  /'
 }
 
-step "0. Health check - node and relationship counts"
+step "0. Authentication - no token -> 401; signed in as $ADMIN_USERNAME (admin)"
+echo "> GET /health  (no Authorization header)"; curl -s -w '\n  HTTP %{http_code}\n' "$API/health" | sed 's/^/  /'
+call GET /auth/me
 call GET /health
 
 step "1. CREATE a suspect (validated, typed properties)"
@@ -62,6 +75,14 @@ call POST /demo/rollback
 step "7. Graph traversal & aggregation through the API"
 call GET "/analytics/Q2?from=S002&to=S026"
 call GET /analytics/Q6
+
+step "8. Shortest path as graph data (any relationship type)"
+call GET "/graph/path?from=S001&to=L005&via=any"
+
+step "9. Graph Data Science - Louvain communities and betweenness (needs the GDS plugin)"
+call GET /gds/status
+curl -s "${KEY_HEADER[@]}" "$API/gds/louvain" | python3 -c 'import json,sys; d=json.load(sys.stdin); [print("  community", i+1, [m["id"]+" "+m["alias"] for m in c["members"]]) for i,c in enumerate(d.get("communities",[]))] or print(" ", d)'
+curl -s "${KEY_HEADER[@]}" "$API/gds/betweenness" | python3 -c 'import json,sys; d=json.load(sys.stdin); [print("  ", r["id"], r["alias"], r["score"]) for r in d.get("rows",[])[:5]] or print(" ", d)'
 
 step "Clean-up (remove CR031 created in step 6)"
 call DELETE "/crimes/CR031?detach=true"

@@ -3,7 +3,7 @@
 setup_db.py - creates the schema and loads the CSV dataset into Neo4j.
 
     python scripts/setup_db.py            # schema + data (idempotent, safe to re-run)
-    python scripts/setup_db.py --reset    # wipe all nodes first, then schema + data
+    python scripts/setup_db.py --reset    # wipe the investigation data first (keeps :User accounts), then schema + data
 
 Connection settings are read from .env (see .env.example).
 """
@@ -30,8 +30,8 @@ def main():
 
     with driver.session(database=db) as session:
         if "--reset" in sys.argv:
-            session.run("MATCH (n) DETACH DELETE n").consume()
-            print("Reset: all nodes and relationships removed")
+            session.run("MATCH (n) WHERE NOT n:User DETACH DELETE n").consume()
+            print("Reset: all investigation nodes and relationships removed (user accounts kept)")
 
         # 1. constraints and indexes
         for stmt in statements("db/01_schema.cypher"):
@@ -68,7 +68,7 @@ def main():
             n = session.run(f"MATCH ()-[r:{rtype}]->() RETURN count(r) AS n").single()["n"]
             ok &= n == exp
             print(f"  {rtype:<14}{n:>5}   expected {exp:<4}{'OK' if n == exp else 'MISMATCH'}")
-        tot_n = session.run("MATCH (n) RETURN count(n) AS n").single()["n"]
+        tot_n = session.run("MATCH (n) WHERE NOT n:User RETURN count(n) AS n").single()["n"]
         tot_r = session.run("MATCH ()-[r]->() RETURN count(r) AS n").single()["n"]
         print(f"\nTOTAL: {tot_n} nodes, {tot_r} relationships  ->  {'SUCCESS' if ok else 'CHECK ABOVE'}")
     driver.close()

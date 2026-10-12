@@ -276,9 +276,11 @@ for c in crimes:
     lead_of[cid] = lead
 support = [("B1213", "CR002"), ("B1202", "CR003"), ("B1215", "CR004"), ("B1212", "CR027"), ("B1210", "CR014")]
 for off, cid in support:
+    if off == lead_of[cid]:   # the random lead may already be this officer -> pick a colleague, so no pair repeats
+        off = next(o for o in DEPT_FOR_TYPE[crime_by_id[cid][1]] if o != off)
     dt = d(crime_by_id[cid][2])
     investigating.append([off, cid, (dt + timedelta(days=rng.randint(2, 10))).isoformat(), "false"])
-assert len(investigating) == 35
+assert len(investigating) == 35 and len({(o, c) for o, c, *_ in investigating}) == 35
 
 # ------------------------------------------------------------------ Evidence (35), LINKED_TO (40), FOUND_AT (30)
 EV_TYPES = {

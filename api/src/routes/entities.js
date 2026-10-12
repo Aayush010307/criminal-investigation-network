@@ -1,6 +1,6 @@
 /**
  * entities.js - generic CRUD for the five node labels.
- *   GET    /api/:entity              list (filters, ?limit, ?skip)
+ *   GET    /api/:entity              list (filters, ?q= text search, ?limit, ?skip)
  *   GET    /api/:entity/:id          one node + a summary of its relationships
  *   POST   /api/:entity              create
  *   PATCH  /api/:entity/:id          partial update (the key property is immutable)
@@ -29,6 +29,10 @@ module.exports = (db) => {
     const filterInput = Object.fromEntries(d.filters.filter((f) => req.query[f] !== undefined).map((f) => [f, req.query[f]]));
     const filters = Object.keys(filterInput).length ? validateProps(filterInput, d, { partial: true }) : {};
     const where = Object.keys(filters).map((f) => `n.${f} = $f_${f}`);
+    if (typeof req.query.q === 'string' && req.query.q.trim()) {         // case-insensitive match on any property
+      where.push('any(k IN keys(n) WHERE toLower(toString(n[k])) CONTAINS $q)');
+      params.q = req.query.q.trim().toLowerCase().slice(0, 100);
+    }
     Object.entries(filters).forEach(([f, v]) => { params[`f_${f}`] = v; });
     const cypher =
       `MATCH (n:${d.label})${where.length ? ' WHERE ' + where.join(' AND ') : ''}\n` +

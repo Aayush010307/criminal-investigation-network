@@ -48,3 +48,8 @@ FOR (s:Suspect) ON (s.alias);
 // Full-text (Lucene) index across two labels for free-text case search
 CREATE FULLTEXT INDEX case_text_search IF NOT EXISTS
 FOR (n:Crime|Evidence) ON EACH [n.description];
+
+// ---------- Added for the final review: application accounts (authentication)
+// :User nodes are not part of the investigation graph; they are never linked to it.
+CREATE CONSTRAINT user_username_unique IF NOT EXISTS
+FOR (u:User) REQUIRE u.username IS UNIQUE;

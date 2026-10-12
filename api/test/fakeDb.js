@@ -37,4 +37,14 @@ function fakeDb(responder = () => ({ rows: [] })) {
 
 function neoError(code, message) { const e = new Error(message); e.code = code; return e; }
 
-module.exports = { fakeDb, neoError };
+/** A supertest agent for the app backed by `db`, signed in with `role` (null = no token at all). */
+const SECRET = 'test-secret-0123456789abcdef0123456789';
+function client(db, role = 'admin') {
+  const request = require('supertest');
+  const { createApp } = require('../src/app');
+  const { signToken } = require('../src/auth');
+  const agent = request.agent(createApp(db, { secret: SECRET, webDist: null }));
+  return role ? agent.set('Authorization', `Bearer ${signToken({ sub: `test-${role}`, role }, SECRET)}`) : agent;
+}
+
+module.exports = { fakeDb, neoError, client, SECRET };

@@ -1,5 +1,5 @@
 // =====================================================================
-// 99_reset.cypher  -  Remove ALL nodes and relationships
-// (constraints and indexes are kept). Use before re-loading for a clean demo.
+// 99_reset.cypher  -  Remove all investigation nodes and relationships
+// (constraints, indexes and :User accounts are kept). Use before re-loading for a clean demo.
 // =====================================================================
-MATCH (n) DETACH DELETE n;
+MATCH (n) WHERE NOT n:User DETACH DELETE n;
