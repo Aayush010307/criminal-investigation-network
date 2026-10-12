@@ -118,6 +118,24 @@ describe('Analytics and transactions', () => {
     assert.deepEqual(db.calls[0].params, { from: 'S003', to: 'S019' });
   });
 
+  test('regression: parameterised queries load their @params and titles (also from CRLF text)', () => {
+    const { QUERIES, parseCypherFile } = require('../src/queries');
+    assert.deepEqual(QUERIES.Q1.params, { suspect_id: 'S001' });
+    assert.ok(QUERIES.Q1.title);
+    for (const q of Object.values(QUERIES)) for (const k of Object.keys(q.params)) assert.ok(q.cypher.includes(`$${k}`), `${q.name} uses $${k}`);
+    const tmp = require('path').join(require('os').tmpdir(), `q-crlf-${process.pid}.cypher`);
+    require('fs').writeFileSync(tmp, '// @name X1\r\n// @title t\r\n// @params {"a": "b"}\r\nRETURN $a;\r\n');
+    try { assert.deepEqual(parseCypherFile(tmp)[0].params, { a: 'b' }); } finally { require('fs').unlinkSync(tmp); }
+  });
+
+  test('a missing Neo4j query parameter is a 400 without internals', async () => {
+    const db = fakeDb(() => { throw neoError('Neo.ClientError.Statement.ParameterMissing', 'Expected parameter(s): suspect_id'); });
+    const res = await client(db).get('/api/analytics/Q1');
+    assert.equal(res.status, 400);
+    assert.equal(res.body.error, 'Missing required query parameter');
+    assert.ok(!JSON.stringify(res.body).includes('suspect_id'));
+  });
+
   test('POST /api/cases writes everything in one transaction', async () => {
     const db = fakeDb((c, p) => {
       if (c.includes('UNWIND $suspects')) return { rows: [{ linked: p.suspects.map((s) => s.id) }] };
