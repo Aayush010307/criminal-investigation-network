@@ -9,7 +9,7 @@ function parseCypherFile(file) {
   const text = fs.readFileSync(file, 'utf8');
   const blocks = text.split(/^\/\/ @name /m).slice(1);
   return blocks.map((block) => {
-    const lines = block.split('\n');
+    const lines = block.split(/\r?\n/); // db/04_queries.cypher is CRLF on Windows checkouts (autocrlf)
     const item = { name: lines[0].trim(), title: '', params: {} };
     const body = [];
     for (const ln of lines.slice(1)) {

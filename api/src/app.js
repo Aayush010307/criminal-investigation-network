@@ -81,6 +81,10 @@ function createApp(db, { secret, ttlHours = 8, webDist = WEB_DIST } = {}) {
   app.use((err, req, res, next) => {
     if (err instanceof HttpError) return res.status(err.status).json({ error: err.message, details: err.details });
     if (err.type === 'entity.parse.failed') return res.status(400).json({ error: 'Malformed JSON body' });
+    if (err.code === 'Neo.ClientError.Statement.ParameterMissing') {
+      console.error(`[db] ${err.code}: ${err.message}`);
+      return res.status(400).json({ error: 'Missing required query parameter' });
+    }
     if (err.code === 'Neo.ClientError.Schema.ConstraintValidationFailed') {
       const m = /property `(\w+)` = (.+)$/m.exec(err.message);
       return res.status(409).json({ error: 'Constraint violation', details: m ? `${m[1]} ${m[2]} already exists` : 'a unique value already exists' });
